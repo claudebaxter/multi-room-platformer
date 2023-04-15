@@ -4,23 +4,12 @@ const c = canvas.getContext('2d');
 canvas.width = 64 * 19;
 canvas.height = 64 * 9;
 
-class Sprite {
-    constructor({position}) {
-        this.position = position
-        this.image = new Image() 
-        this.image.src = './img/backgroundLevel1.png'
-    }
-    draw() {
-        c.drawImage(this.image, this.position.x, this.position.y) 
-    }
-}
-
 const backgroundLevel1 = new Sprite({
     position: {
         x: 0,
         y: 0
     },
-
+    imageSrc: './img/backgroundLevel1.png'
 })
 
 const player = new Player()
