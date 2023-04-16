@@ -3,15 +3,15 @@ class Player {
         collisionBlocks = []
     }) {
         this.position = {
-            x: 100,
-            y: 100
+            x: 200,
+            y: 200
         }
         this.velocity = {
             x: 0,
             y: 0
         }
-        this.width = 100
-        this.height = 100
+        this.width = 25
+        this.height = 25
         this.sides = {
             bottom: this.position.y + this.height
         }
@@ -35,11 +35,11 @@ class Player {
                 this.position.y + this.height >= collisionBlock.position.y &&
                 this.position.y <= collisionBlock.position.y + collisionBlock.height) {
                     //collision on x axis going left
-                    if (this.velocity.x < -1) {
+                    if (this.velocity.x < 0) {
                         this.position.x = collisionBlock.position.x + collisionBlock.width + 0.01;
                         break;
                     }
-                    if (this.velocity.x > 1) {
+                    if (this.velocity.x > 0) {
                         this.position.x = collisionBlock.position.x - this.width - 0.01;
                         break;
                     }
@@ -59,12 +59,14 @@ class Player {
                 this.position.x + this.width >= collisionBlock.position.x &&
                 this.position.y + this.height >= collisionBlock.position.y &&
                 this.position.y <= collisionBlock.position.y + collisionBlock.height) {
-                    //collision on x axis going left
-                    if (this.velocity.y < -1) {
+                    //collision on y axis going down
+                    if (this.velocity.y < 0) {
+                        this.velocity.y = 0;
                         this.position.y = collisionBlock.position.y + collisionBlock.height + 0.01;
                         break;
                     }
-                    if (this.velocity.y > 1) {
+                    if (this.velocity.y > 0) {
+                        this.velocity.y = 0;
                         this.position.y = collisionBlock.position.y - this.height - 0.01;
                         break;
                     }
