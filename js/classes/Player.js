@@ -47,8 +47,8 @@ class Player {
         }
 
         //apply gravity
+        this.velocity.y += this.gravity;  
         this.position.y += this.velocity.y;
-        this.sides.bottom = this.position.y + this.height;
 
         //check for vertical collisions
         for (let i = 0; i < this.collisionBlocks.length; i++) {
@@ -71,13 +71,6 @@ class Player {
                         break;
                     }
                 }
-        }
-
-        //above bottom of canvas
-        if (this.sides.bottom + this.velocity.y < canvas.height) {
-            this.velocity.y += this.gravity;           
-        } else {
-            this.velocity.y = 0;
         }
     }
 }
