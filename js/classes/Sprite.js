@@ -49,6 +49,10 @@ class Sprite {
         ) 
         this.updateFrames()
     }
+
+    play() {
+        this.autoplay = true;
+    }
     updateFrames() {
         if (!this.autoplay) return
 
